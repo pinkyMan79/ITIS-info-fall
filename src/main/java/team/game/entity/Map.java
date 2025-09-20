@@ -53,12 +53,47 @@ public class Map implements Render {
     }
 
     private void preRender() {
+        int playerXcoord = 0;
+        int playerYcoord = 0;
+        Player player = null;
+
+        int enemyXcoord = 0;
+        int enemyYcoord = 0;
+        Enemy enemy = null;
+
         for (int i = 0; i < entityList.length; i++) {
             if (entityList[i] != null) {
                 AbstractEntity currEntity = entityList[i];
                 if (currEntity instanceof Player) {
                     mapMatrix[currEntity.getX()][currEntity.getY()] = '@';
-                } // add case for enemies, altars
+                    // add case for enemies, altars
+                    playerXcoord = currEntity.getX();
+                    playerYcoord = currEntity.getY();
+                    player = (Player) currEntity;
+
+                }
+
+                if (currEntity instanceof Enemy){
+                    mapMatrix[currEntity.getX()][currEntity.getY()] = 'E';
+                    enemyXcoord = currEntity.getX();
+                    enemyYcoord = currEntity.getY();
+                    enemy = (Enemy) currEntity;
+                }
+
+                if ( enemy!= null && player != null && (playerXcoord == enemyXcoord) &&  (playerYcoord ==  enemyYcoord)){
+                    //collide!
+                    int newHPPlayer = player.getHealthPoint() - enemy.getDamagePoint();
+                    int newHPEnemy = enemy.getHealthPoint() - player.getDamagePoint();
+                    enemy.setHealthPoint(newHPEnemy);
+                    player.setHealthPoint(newHPPlayer);
+                    if (enemy.getHealthPoint()<=0) {
+                        entityList[i] = null;
+                    }
+
+
+                }
+
+
             }
         }
 
