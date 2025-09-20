@@ -1,7 +1,7 @@
 package team.game.entity;
 
 import team.game.contract.util.DirectionType;
-import team.game.entity.abstraction.AbstractEntity;
+import team.game.entity.parent.AbstractEntity;
 import team.game.entity.items.Item;
 
 public class Player extends AbstractEntity {
@@ -23,19 +23,6 @@ public class Player extends AbstractEntity {
             case RIGHT -> moveRight();
             default -> System.out.println("incompatible command");
         }
-    }
-
-    private void moveUp() {
-        this.setX(this.getX() - 1);
-    }
-    private void moveDown() {
-        this.setX(this.getX() + 1);
-    }
-    private void moveLeft() {
-        this.setY(this.getY() - 1);
-    }
-    private void moveRight() {
-        this.setY(this.getY() + 1);
     }
 
     public Item[] getItemList() {

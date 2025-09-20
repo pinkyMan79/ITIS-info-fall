@@ -1,4 +1,4 @@
-package team.game.entity.abstraction;
+package team.game.entity.parent;
 
 import team.game.contract.Move;
 
@@ -54,5 +54,21 @@ public abstract class AbstractEntity implements Move {
         } else {
             this.x = 0;
         }
+    }
+
+    protected void moveUp() {
+        this.setX(this.getX() - 1);
+    }
+
+    protected void moveDown() {
+        this.setX(this.getX() + 1);
+    }
+
+    protected void moveLeft() {
+        this.setY(this.getY() - 1);
+    }
+
+    protected void moveRight() {
+        this.setY(this.getY() + 1);
     }
 }

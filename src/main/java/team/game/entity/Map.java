@@ -1,7 +1,8 @@
 package team.game.entity;
 
 import team.game.contract.Render;
-import team.game.entity.abstraction.AbstractEntity;
+import team.game.entity.parent.AbstractBuilding;
+import team.game.entity.parent.AbstractEntity;
 import team.game.entity.items.Item;
 
 /**
@@ -17,6 +18,7 @@ import team.game.entity.items.Item;
 public class Map implements Render {
     private char[][] mapMatrix;
     private AbstractEntity[] entityList;
+    private AbstractBuilding[] buildingList;
     private Item[] itemList;
     private final int matrixSide;
 
@@ -24,6 +26,7 @@ public class Map implements Render {
         this.matrixSide = matrixSide;
         this.mapMatrix = new char[matrixSide][matrixSide];
         this.entityList = new AbstractEntity[100];
+        this.buildingList = new AbstractBuilding[100];
         this.itemList = new Item[100];
         // here you need to initialize trap array
         initialize();
@@ -58,6 +61,12 @@ public class Map implements Render {
                 } // add case for enemies, altars
             }
         }
+
+        for (int i = 0; i < buildingList.length; i++) {
+            if (buildingList[i] != null) {
+                // show the buildings on map, use instanceof keyword for validate
+            }
+        }
     }
 
     public char[][] getMapMatrix() {
@@ -82,5 +91,13 @@ public class Map implements Render {
 
     public void setItemList(Item[] itemList) {
         this.itemList = itemList;
+    }
+
+    public AbstractBuilding[] getBuildingList() {
+        return buildingList;
+    }
+
+    public void setBuildingList(AbstractBuilding[] buildingList) {
+        this.buildingList = buildingList;
     }
 }
