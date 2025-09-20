@@ -14,7 +14,8 @@ import team.game.entity.items.Item;
  * entityList[1=>] - enemies and other entities
  */
 
-// homework - optimise render algorithm, now it is rewrites a map always, but you can make rewrite
+// homework - optimise render algorithm, now it is rewrites a map always,
+// but it possible to rewrite only some parts of matrix
 public class Map implements Render {
     private char[][] mapMatrix;
     private AbstractEntity[] entityList;
@@ -58,7 +59,7 @@ public class Map implements Render {
                 AbstractEntity currEntity = entityList[i];
                 if (currEntity instanceof Player) {
                     mapMatrix[currEntity.getX()][currEntity.getY()] = '@';
-                } // add case for enemies, altars
+                }
             }
         }
 
