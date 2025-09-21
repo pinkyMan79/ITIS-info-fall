@@ -6,4 +6,6 @@ public enum BuffType {
     DAMAGE_INCREASE,
     DAMAGE_DECREASE,
     EXAMPLE
+    // BONUS_INCREASE
+
 }

@@ -1,9 +1,12 @@
 package team.game;
 
 import team.game.contract.util.DirectionType;
+import team.game.entity.Altar;
 import team.game.entity.Map;
 import team.game.entity.Player;
+import team.game.entity.items.BuffType;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameInit {
@@ -18,6 +21,11 @@ public class GameInit {
             gameStage++;
             String command = sc.nextLine();
             // for movements use u -> up, d -> down, l -> left, r -> right
+            if (gameStage%10 == 0);{
+                Random random = new Random();
+                Altar altar = new Altar(random.nextInt(39), random.nextInt(39), BuffType.HEALTH_INCREASE, player);//random lib
+                map.getBuildingList()[0] = altar;
+            }
             switch (command) {
                 case "u" -> player.move(DirectionType.UP);
                 case "d" -> player.move(DirectionType.DOWN);
@@ -25,6 +33,11 @@ public class GameInit {
                 case "r" -> player.move(DirectionType.RIGHT);
                 // add new cases for new mechanisms
                 default -> System.out.println("Invalid command");
+            }
+            if (gameStage%10 == 0);{
+                Random random = new Random();
+                Altar altar = new Altar(random.nextInt(39), random.nextInt(39), BuffType.HEALTH_INCREASE, player);//random lib
+                map.getBuildingList()[0] = altar;
             }
             map.render();
         }

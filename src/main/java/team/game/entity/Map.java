@@ -53,17 +53,41 @@ public class Map implements Render {
     }
 
     private void preRender() {
+        int playerx = 0;
+        int playery = 0;
+        Player player = null;
+
+        int altarx = 0;
+        int altary = 0;
+        Altar altar = null;
         for (int i = 0; i < entityList.length; i++) {
             if (entityList[i] != null) {
                 AbstractEntity currEntity = entityList[i];
                 if (currEntity instanceof Player) {
                     mapMatrix[currEntity.getX()][currEntity.getY()] = '@';
+                    playerx = currEntity.getX();
+                    playery = currEntity.getY();
+                    player = (Player) currEntity;
                 } // add case for enemies, altars
+
+
             }
         }
 
         for (int i = 0; i < buildingList.length; i++) {
             if (buildingList[i] != null) {
+                AbstractBuilding currBuild = buildingList[i];
+                if (currBuild instanceof Altar) {
+                    mapMatrix[currBuild.getX()][currBuild.getY()] = 'A';
+                    altarx = currBuild.getX();
+                    altary = currBuild.getY();
+                    altar = (Altar) currBuild;
+                }
+                if ( altar!= null && player != null && (playerx == altarx) &&  (playery ==  altary)){
+                    altar.activating(player);
+                    buildingList[i] = null;
+                    }
+                //
                 // show the buildings on map, use instanceof keyword for validate
             }
         }

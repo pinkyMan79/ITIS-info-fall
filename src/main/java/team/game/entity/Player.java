@@ -8,7 +8,7 @@ public class Player extends AbstractEntity {
 
     // inventory, every item in inventory will add some bonuses to player, create the mechanism for that
     private final Item[] itemList;
-
+    // bonus=0
     public Player(int healthPoint, int damagePoint, int x, int y) {
         super(healthPoint, damagePoint, x, y);
         this.itemList = new Item[100];
