@@ -4,7 +4,9 @@ import java.util.Iterator;
 
 public class StudentListDemo{
     public static void main(String[] args) {
+
         ArrayList studentList = new ArrayList(); //okay so I here initialise an array
+
         studentList.add("Guinevera"); // Here I add some characters from stuff I watch, some of them are Turkish names
         studentList.add("Mahmut Efendi");
         studentList.add("Kapici Veysel");
@@ -27,10 +29,10 @@ public class StudentListDemo{
 
         Iterator iterator = studentList.iterator();
 
-        while (iterator.hasNext()) {         // 
+        while (iterator.hasNext()) {         // made a loop that runs as long as we have elements
 
-            Object name = iterator.next();
-            System.out.println(name);
+            Object name = iterator.next();  // we get the current element and move forward
+            System.out.println(name); // and we print the current element
         }
 
         //2nd Tasks
@@ -45,12 +47,18 @@ public class StudentListDemo{
         studentSet.add("Inek Saban");
         studentSet.add("Bald Mahmut");
 
-        System.out.println(studentSet);
+        System.out.println(studentList);
 
-        // Compared to lists, Sets dont store duplicates. 
+        // Answer for: "How does `Set` differ from `List`?"
+        //Compared to lists, Sets dont store duplicates. 
         //And in sets the values are not ordered, while in lists values are ordered
 
+        // Answer for "What does an `Iterator` do?":
+        // it loops through elements one by one with methods like hasnext() and next(),
 
+        // answer for "Why can using raw types be dangerous?":
+        // when we dont use generic types the computer stops checking if we put the correct thing inside, it can cause crashes or errors.
+        // so its better to declare what we are going to keep in our list/map etc.
 
     }
 }

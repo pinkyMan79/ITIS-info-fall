@@ -47,10 +47,10 @@ public class PhoneBook {
                     }
                 }
 
-            } else if (choice.equals("4")) {
+            } else if (choice.equals("4")) { // system exists
                 System.out.println("Exiting the book . . . ");
                 break;
-            } else {
+            } else { //if user puts anything other than 1-4 it prints this
                 System.out.println("No such option :<");
             }
         }

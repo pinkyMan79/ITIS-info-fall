@@ -24,5 +24,7 @@ public class TasksList {
         }
 
         System.out.println(tasks); // checked if its empty
+
+        //Answer for how Poll works in queue: it take the first element of queue, prints and removes it
     }
 }

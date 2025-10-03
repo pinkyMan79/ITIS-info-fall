@@ -15,8 +15,7 @@ public class StudentsFavLanguage {
         for (Object key: favLanguage.keySet()) {  // Loop trough the keys here
             System.out.println(key + ": " + favLanguage.get(key)); //then we print the key and its value using get()
         }
-
-        //Answer for how Poll works in queue: 
+        
 
     }
 
